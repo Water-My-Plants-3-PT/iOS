@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        navigationController?.title = "Water my Plants"
+        self.title = "Water my Plants"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
