@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let wrongSideColonTest :Int = 3
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +17,4 @@ class ViewController: UIViewController {
         self.title = "Water my Plants"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-
-
 }
-

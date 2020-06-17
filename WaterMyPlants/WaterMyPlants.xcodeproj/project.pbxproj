@@ -14,6 +14,7 @@
 		13CA9D662499C30700D3931E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13CA9D652499C30700D3931E /* Assets.xcassets */; };
 		13CA9D692499C30700D3931E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CA9D672499C30700D3931E /* LaunchScreen.storyboard */; };
 		13CA9D762499C41100D3931E /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA9D752499C41100D3931E /* Plant.swift */; };
+		B3E6F20A4AD809D6017B2028 /* Pods_WaterMyPlants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ADA69DDFDBFD8937BBC99D /* Pods_WaterMyPlants.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		13CA9D682499C30700D3931E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13CA9D6A2499C30700D3931E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13CA9D752499C41100D3931E /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		34ADA69DDFDBFD8937BBC99D /* Pods_WaterMyPlants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaterMyPlants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		615FE302176A5150945398CD /* Pods-WaterMyPlants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterMyPlants.release.xcconfig"; path = "Target Support Files/Pods-WaterMyPlants/Pods-WaterMyPlants.release.xcconfig"; sourceTree = "<group>"; };
+		FFCBCFB0784EECB5393650B2 /* Pods-WaterMyPlants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterMyPlants.debug.xcconfig"; path = "Target Support Files/Pods-WaterMyPlants/Pods-WaterMyPlants.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E6F20A4AD809D6017B2028 /* Pods_WaterMyPlants.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				13CA9D5B2499C30600D3931E /* WaterMyPlants */,
 				13CA9D5A2499C30600D3931E /* Products */,
+				4E61D4D27F07B1C82601B54B /* Pods */,
+				BB7F82F7D68B73061F91E559 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +117,23 @@
 			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
+		4E61D4D27F07B1C82601B54B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FFCBCFB0784EECB5393650B2 /* Pods-WaterMyPlants.debug.xcconfig */,
+				615FE302176A5150945398CD /* Pods-WaterMyPlants.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BB7F82F7D68B73061F91E559 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34ADA69DDFDBFD8937BBC99D /* Pods_WaterMyPlants.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13CA9D6D2499C30700D3931E /* Build configuration list for PBXNativeTarget "WaterMyPlants" */;
 			buildPhases = (
+				C080BEF07066484A32B91B06 /* [CP] Check Pods Manifest.lock */,
 				13CA9D552499C30600D3931E /* Sources */,
 				13CA9D562499C30600D3931E /* Frameworks */,
 				13CA9D572499C30600D3931E /* Resources */,
+				1300BD132499CC0800A9DADF /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -175,6 +201,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1300BD132499CC0800A9DADF /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		C080BEF07066484A32B91B06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WaterMyPlants-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		13CA9D552499C30600D3931E /* Sources */ = {
@@ -326,6 +395,7 @@
 		};
 		13CA9D6E2499C30700D3931E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFCBCFB0784EECB5393650B2 /* Pods-WaterMyPlants.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -343,6 +413,7 @@
 		};
 		13CA9D6F2499C30700D3931E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 615FE302176A5150945398CD /* Pods-WaterMyPlants.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
