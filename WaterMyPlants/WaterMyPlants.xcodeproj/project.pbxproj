@@ -7,17 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132667BA249A9E73007FC064 /* WaterMyPlants.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 132667B8249A9E73007FC064 /* WaterMyPlants.xcdatamodeld */; };
+		132667BC249A9F3F007FC064 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132667BB249A9F3F007FC064 /* CoreDataStack.swift */; };
+		132667BE249A9FE2007FC064 /* Plant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132667BD249A9FE2007FC064 /* Plant+Convenience.swift */; };
+		132667C0249AA235007FC064 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132667BF249AA235007FC064 /* Notifications.swift */; };
+		132667C4249AB10C007FC064 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132667C3249AB10C007FC064 /* Constants.swift */; };
+		132667CA249AB95A007FC064 /* PlantsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132667C9249AB95A007FC064 /* PlantsCollectionViewController.swift */; };
+		132667CC249ADF0C007FC064 /* PlantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132667CB249ADF0C007FC064 /* PlantCollectionViewCell.swift */; };
 		13CA9D5D2499C30600D3931E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA9D5C2499C30600D3931E /* AppDelegate.swift */; };
 		13CA9D5F2499C30600D3931E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA9D5E2499C30600D3931E /* SceneDelegate.swift */; };
 		13CA9D612499C30600D3931E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA9D602499C30600D3931E /* ViewController.swift */; };
 		13CA9D642499C30600D3931E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CA9D622499C30600D3931E /* Main.storyboard */; };
 		13CA9D662499C30700D3931E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13CA9D652499C30700D3931E /* Assets.xcassets */; };
 		13CA9D692499C30700D3931E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CA9D672499C30700D3931E /* LaunchScreen.storyboard */; };
-		13CA9D762499C41100D3931E /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA9D752499C41100D3931E /* Plant.swift */; };
 		B3E6F20A4AD809D6017B2028 /* Pods_WaterMyPlants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ADA69DDFDBFD8937BBC99D /* Pods_WaterMyPlants.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		132667B9249A9E73007FC064 /* Plant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Plant.xcdatamodel; sourceTree = "<group>"; };
+		132667BB249A9F3F007FC064 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		132667BD249A9FE2007FC064 /* Plant+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+Convenience.swift"; sourceTree = "<group>"; };
+		132667BF249AA235007FC064 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		132667C3249AB10C007FC064 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		132667C9249AB95A007FC064 /* PlantsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsCollectionViewController.swift; sourceTree = "<group>"; };
+		132667CB249ADF0C007FC064 /* PlantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCollectionViewCell.swift; sourceTree = "<group>"; };
 		13CA9D592499C30600D3931E /* WaterMyPlants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterMyPlants.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13CA9D5C2499C30600D3931E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13CA9D5E2499C30600D3931E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +39,6 @@
 		13CA9D652499C30700D3931E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13CA9D682499C30700D3931E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13CA9D6A2499C30700D3931E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13CA9D752499C41100D3931E /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		34ADA69DDFDBFD8937BBC99D /* Pods_WaterMyPlants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaterMyPlants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		615FE302176A5150945398CD /* Pods-WaterMyPlants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterMyPlants.release.xcconfig"; path = "Target Support Files/Pods-WaterMyPlants/Pods-WaterMyPlants.release.xcconfig"; sourceTree = "<group>"; };
 		FFCBCFB0784EECB5393650B2 /* Pods-WaterMyPlants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterMyPlants.debug.xcconfig"; path = "Target Support Files/Pods-WaterMyPlants/Pods-WaterMyPlants.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				13CA9D602499C30600D3931E /* ViewController.swift */,
+				132667C9249AB95A007FC064 /* PlantsCollectionViewController.swift */,
+				132667CB249ADF0C007FC064 /* PlantCollectionViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -105,7 +119,11 @@
 		13CA9D732499C34300D3931E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				13CA9D752499C41100D3931E /* Plant.swift */,
+				132667B8249A9E73007FC064 /* WaterMyPlants.xcdatamodeld */,
+				132667BB249A9F3F007FC064 /* CoreDataStack.swift */,
+				132667BD249A9FE2007FC064 /* Plant+Convenience.swift */,
+				132667BF249AA235007FC064 /* Notifications.swift */,
+				132667C3249AB10C007FC064 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,10 +268,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132667CC249ADF0C007FC064 /* PlantCollectionViewCell.swift in Sources */,
+				132667BC249A9F3F007FC064 /* CoreDataStack.swift in Sources */,
+				132667C0249AA235007FC064 /* Notifications.swift in Sources */,
 				13CA9D612499C30600D3931E /* ViewController.swift in Sources */,
-				13CA9D762499C41100D3931E /* Plant.swift in Sources */,
+				132667CA249AB95A007FC064 /* PlantsCollectionViewController.swift in Sources */,
+				132667BA249A9E73007FC064 /* WaterMyPlants.xcdatamodeld in Sources */,
+				132667BE249A9FE2007FC064 /* Plant+Convenience.swift in Sources */,
 				13CA9D5D2499C30600D3931E /* AppDelegate.swift in Sources */,
 				13CA9D5F2499C30600D3931E /* SceneDelegate.swift in Sources */,
+				132667C4249AB10C007FC064 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +475,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		132667B8249A9E73007FC064 /* WaterMyPlants.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				132667B9249A9E73007FC064 /* Plant.xcdatamodel */,
+			);
+			currentVersion = 132667B9249A9E73007FC064 /* Plant.xcdatamodel */;
+			path = WaterMyPlants.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 13CA9D512499C30600D3931E /* Project object */;
 }
