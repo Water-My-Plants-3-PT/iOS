@@ -21,6 +21,7 @@
 		13CA9D662499C30700D3931E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13CA9D652499C30700D3931E /* Assets.xcassets */; };
 		13CA9D692499C30700D3931E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13CA9D672499C30700D3931E /* LaunchScreen.storyboard */; };
 		B3E6F20A4AD809D6017B2028 /* Pods_WaterMyPlants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34ADA69DDFDBFD8937BBC99D /* Pods_WaterMyPlants.framework */; };
+		E3DAF6BC249B075700B5FE43 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DAF6BB249B075700B5FE43 /* PlantDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		13CA9D6A2499C30700D3931E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34ADA69DDFDBFD8937BBC99D /* Pods_WaterMyPlants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaterMyPlants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		615FE302176A5150945398CD /* Pods-WaterMyPlants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterMyPlants.release.xcconfig"; path = "Target Support Files/Pods-WaterMyPlants/Pods-WaterMyPlants.release.xcconfig"; sourceTree = "<group>"; };
+		E3DAF6BB249B075700B5FE43 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
 		FFCBCFB0784EECB5393650B2 /* Pods-WaterMyPlants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterMyPlants.debug.xcconfig"; path = "Target Support Files/Pods-WaterMyPlants/Pods-WaterMyPlants.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				13CA9D602499C30600D3931E /* ViewController.swift */,
 				132667C9249AB95A007FC064 /* PlantsCollectionViewController.swift */,
 				132667CB249ADF0C007FC064 /* PlantCollectionViewCell.swift */,
+				E3DAF6BB249B075700B5FE43 /* PlantDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				13CA9D5D2499C30600D3931E /* AppDelegate.swift in Sources */,
 				13CA9D5F2499C30600D3931E /* SceneDelegate.swift in Sources */,
 				132667C4249AB10C007FC064 /* Constants.swift in Sources */,
+				E3DAF6BC249B075700B5FE43 /* PlantDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
