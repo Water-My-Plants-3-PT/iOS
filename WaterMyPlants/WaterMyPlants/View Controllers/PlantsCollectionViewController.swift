@@ -10,7 +10,10 @@ import UIKit
 import CoreData
 
 class PlantsCollectionViewController: UICollectionViewController {
-     // Fetch an array of Plant objects, sorted by nextWatering
+    
+    let plantController = PlantController()
+    
+    // MARK: Plants Array
     private var plants: [Plant] {
        let fetchRequest: NSFetchRequest<Plant> = Plant.fetchRequest()
        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "nextWatering", ascending: true)]
@@ -22,6 +25,8 @@ class PlantsCollectionViewController: UICollectionViewController {
           return []
        }
     }
+    
+    // MARK: - FRC
     lazy var fetchedResultsController: NSFetchedResultsController<Plant> = {
        let fetchRequest: NSFetchRequest<Plant> = Plant.fetchRequest()
        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "nextWatering", ascending: false)]
@@ -39,18 +44,22 @@ class PlantsCollectionViewController: UICollectionViewController {
        return frc
     }()
     
+    // MARK: - DebugInfo
     private func debugInfo(_ plant: Plant) {
-        NSLog("You tapped on \(plant.name!)")
-        NSLog("DEBUG INFO:")
-        NSLog("\tname: \(plant.name!)")
-        NSLog("\tidentifier: \(plant.identifier!)")
-        NSLog("\tlastWatered: \(plant.lastWatered!)")
-        NSLog("\tnextWatering: \(plant.nextWatering!)")
-        NSLog("\n")
+        print("You tapped on \(plant.name!)")
+        print("DEBUG INFO:")
+        print("\tname: \(plant.name!)")
+        print("\tidentifier: \(plant.identifier!)")
+        print("\tlastWatered: \(plant.lastWatered!)")
+        print("\tnextWatering: \(plant.nextWatering!)")
+        print("\n")
     }
     
+    // MARK: - View Lifecycle
     @objc func updateViews() {
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 
     override func viewDidLoad() {
@@ -66,6 +75,7 @@ class PlantsCollectionViewController: UICollectionViewController {
 
     // Number of cells
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //return fetchedResultsController.sections?[section].numberOfObjects ?? 0
         return plants.count
     }
 

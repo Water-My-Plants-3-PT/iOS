@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController {
+    
+    let plantController = PlantController()
 
     // Creates an alert which will get the plant name from user
     @objc func addButtonTapped() {
@@ -22,10 +24,13 @@ class ViewController: UIViewController {
         let submit = UIAlertAction(title: "Done", style: UIAlertAction.Style.default, handler: { _ -> Void in
             let nameInput = alertController.textFields![0] as UITextField
             if nameInput.text != nil {
-                // Save it to coredata
-                Plant(name: nameInput.text!, lastWatered: Date(), nextWatering: Date())
+                guard let name = nameInput.text else { return }
+                if name.isEmpty { return }
+                // Save it to coredata, send it to Server
+                let plant = Plant(name: name, lastWatered: Date(), nextWatering: Date())
                 do {
                     try CoreDataStack.shared.mainContext.save()
+                    self.plantController.sendPlantToServer(plant)
                     // Notify observers that new plant has been added
                     NotificationCenter.default.post(name: .newPlantAdded, object: self)
                 } catch {
@@ -36,10 +41,6 @@ class ViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive))
         alertController.addAction(submit)
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    @objc func updateViews() {
-        
     }
 
     override func viewDidLoad() {

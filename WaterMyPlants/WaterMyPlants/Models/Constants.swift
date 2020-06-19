@@ -8,6 +8,8 @@
 
 import Foundation
 
+var selectedAPI = firebaseURL
+
 // Main API
 var webapiURL = URL(string: "")!
 // Used as backup if web API fails
