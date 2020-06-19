@@ -4,7 +4,7 @@
 //
 //  Created by conner on 6/17/20.
 //  Copyright © 2020 conner. All rights reserved.
-// (Test push to Conner branch)
+//
 
 import Foundation
 import CoreData
