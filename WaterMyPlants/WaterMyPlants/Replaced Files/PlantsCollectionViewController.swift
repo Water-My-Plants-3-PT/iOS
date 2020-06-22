@@ -43,7 +43,7 @@ class PlantsCollectionViewController: UICollectionViewController {
         NSLog("You tapped on \(plant.name!)")
         NSLog("DEBUG INFO:")
         NSLog("\tname: \(plant.name!)")
-        NSLog("\tidentifier: \(plant.identifier!.uuidString)")
+        NSLog("\tidentifier: \(plant.identifier!)")
         NSLog("\tlastWatered: \(plant.lastWatered!)")
         NSLog("\tnextWatering: \(plant.nextWatering!)")
         NSLog("\n")
