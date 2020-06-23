@@ -91,7 +91,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             }
                         }
                     } catch {
-                        if let error = error as? GigController.NetworkError {
+                        if let error = error as? PlantController.NetworkError {
                             switch error {
                             case .failedSignIn:
                                 print("Sign in failed")

@@ -7,8 +7,33 @@
 //
 
 import UIKit
+import CoreData
 
 class PlantTableViewController: UITableViewController {
+
+
+    private let plantController = PlantController()
+
+        lazy var fetchedResultsController: NSFetchedResultsController<Plant> = {
+
+            let fetchRequest: NSFetchRequest<Plant> = Plant.fetchRequest()
+            fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "name", ascending: true),
+                 ]
+
+            let moc = CoreDataStack.shared.mainContext
+            let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "name", cacheName: nil)
+
+            frc.delegate = self
+            do {
+                       try frc.performFetch()
+                   } catch {
+                       NSLog("Error fetching Plant objects")
+                   }
+                   return frc
+               }()
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,14 +102,73 @@ class PlantTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+              if segue.identifier == "ShowDetailSegue" {
+                  if let detailVC = segue.destination as? PlantDetailViewController,
+                      let indexPath = tableView.indexPathForSelectedRow {
+                      detailVC.plant = fetchedResultsController.object(at: indexPath)
 
+                  } else if segue.identifier == "CreatePlantModalSegue" {
+                      if let naviC = segue.destination as? UINavigationController,
+                         let createPlant = naviC.viewControllers.first as? CreatePlantViewController {
+                          createPlant.plantController = plantController
+                      }
+
+                  }
+              }
+          }
+
+
+}
+
+extension PlantTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int,
+                    for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+        default:
+            break
+        }
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else { return }
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .update:
+            guard let indexPath = indexPath else { return }
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .move:
+            guard let oldIndexPath = indexPath,
+            let newIndexPath = newIndexPath else { return }
+            tableView.deleteRows(at: [oldIndexPath], with: .automatic)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .delete:
+            guard let indexPath = indexPath else { return }
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        @unknown default:
+            break
+        }
+    }
 }

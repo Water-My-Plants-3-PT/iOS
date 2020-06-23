@@ -17,7 +17,7 @@ extension Plant {
     self.lastWatered = lastWatered
     self.nextWatering = nextWatering
    }
-    /* Initialize a new Plant from a PlantRepresentation
+    // Initialize a new Plant from a PlantRepresentation
     @discardableResult convenience init(plantRepresentation: PlantRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(name: plantRepresentation.name,
                   identifier: plantRepresentation.identifier,
@@ -34,5 +34,5 @@ extension Plant {
             let nextWatering = nextWatering else { fatalError("fatalError() in plantRepresentation computed property, Plant+Convenience.swift") }
         return PlantRepresentation(name: name, identifier: identifier, lastWatered: lastWatered, nextWatering: nextWatering)
     }
- */
+
 }
