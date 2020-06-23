@@ -238,7 +238,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fVp-LB-l4D"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Plant" id="SGR-GC-BBj"/>
+                    <navigationItem key="navigationItem" title="Add Plant" id="SGR-GC-BBj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="D8x-dy-Urr">
+                            <connections>
+                                <action selector="cancelTapped:" destination="U7V-LC-WBc" id="G8b-8f-2Q6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kLP-0l-s1f"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="lastWateredPicker" destination="0qD-pt-wql" id="qIl-fk-gAf"/>
                         <outlet property="plantImage" destination="0qw-Sk-L8z" id="pk4-J8-eNp"/>
