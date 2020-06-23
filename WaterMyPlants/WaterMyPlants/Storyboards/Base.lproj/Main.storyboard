@@ -239,6 +239,12 @@
                         <viewLayoutGuide key="safeArea" id="fVp-LB-l4D"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Plant" id="SGR-GC-BBj"/>
+                    <connections>
+                        <outlet property="lastWateredPicker" destination="0qD-pt-wql" id="qIl-fk-gAf"/>
+                        <outlet property="plantImage" destination="0qw-Sk-L8z" id="pk4-J8-eNp"/>
+                        <outlet property="plantNameTextField" destination="YDs-NN-E8P" id="8i9-4l-SM5"/>
+                        <outlet property="waterFrequencyPicker" destination="Klp-D6-iiE" id="aJY-My-yo3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfC-3d-vOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

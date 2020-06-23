@@ -7,139 +7,111 @@
 //
 
 import UIKit
-
-class CreatePlantViewController: UIViewController {
-
+import CoreData
 
 
+protocol LastWateredPickerDelegate {
+    func lastWateredWasPicked(date: Date)
+}
 
-      // MARK: - Properties
+protocol NextWaterPickerDelegate {
+    func nextWaterWasPicked(frequency: Int)   // assuming that this is correct, we need to convert the data from the picker to an Int that we
+}
 
-        var plantController: PlantController?
-        var plant: Plant?
-        var wasEdited: Bool = false
-        let dateAdded = Date()
-
-        let pickerData = [
-            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-            ["Days", "Weeks"]
-        ]
+class CreatePlantViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
 
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            waterFrequencyPicker.delegate = self
-            waterFrequencyPicker.dataSource = self
-
-            updateViews()
-        }
 
 
-        // MARK: - IBOutlets
+    // MARK: - Properties
+    var delegateLast: LastWateredPickerDelegate?
+    var delegatenext: NextWaterPickerDelegate?
+    var plantController: PlantController?
+    //var lastWatered: UIDatePicker?
+    //var nextWatering: UIPickerView?
 
-        @IBOutlet weak var lastWateredPicker: UIDatePicker!
-
-        @IBOutlet weak var waterFrequencyPicker: UIPickerView!
-
-        @IBOutlet weak var plantImage: UIImageView!
-
-        @IBOutlet weak var plantNameTextField: UITextField!
-
-
-        // MARK: - IBActions
-        func frequencyPickerChanged(frequencyPicker: UIDatePicker) {
-            let dateFormatter = DateFormatter()
-
-            /*
-             Should be able to grab whatever date is on the picker and
-             convert it to a string to be stored in the label's text.
-             Might be useful to also store the date to be used in a calculation
-             to determine a future watering date.
-             */
-
-        }
-
-
-        // MARK: - Methods
-
-        // Set up custom pickerview
-        func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return pickerData.count
-        }
-
-        func pickerView(_
-            pickerView: UIPickerView,
-                        numberOfRowsInComponent component: Int
-        ) -> Int {
-            return pickerData[component].count
-        }
-
-        func pickerView(_
-            pickerView: UIPickerView,
-                        titleForRow row: Int,
-                        forComponent component: Int
-        ) -> String? {
-            return pickerData[component][row]
-        }
-
-
-        override func setEditing(_ editing: Bool, animated: Bool) {
-
-            super.setEditing(editing, animated: animated)
-            if editing{
-                wasEdited = true
-            }
-            plantNameTextField.isUserInteractionEnabled = isEditing
-            navigationItem.hidesBackButton = editing
-        }
-
-        override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            if wasEdited{
-                guard let name = plantNameTextField.text, !name.isEmpty,
-                    let plant = plant
-                    else { return }
-
-                plant.name = name
-                plantController?.sendPlantToServer(plant: plant)
-
-                do{
-                    try CoreDataStack.shared.mainContext.save()
-                } catch {
-                    NSLog("Error saving managed object context: \(error)")
-                }
-            }
-        }
-
-
-        private func updateViews() {
-            plantNameTextField.text = plant?.name
-            plantNameTextField.isUserInteractionEnabled = isEditing
-
-            // add image and picker info
-
-        }
-
-
-    }
-
+    let pickerData = [
+        ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+        ["Days"]
+    ]
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        waterFrequencyPicker.delegate = self
+        waterFrequencyPicker.dataSource = self
 
-        // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - IBOutlets
+
+    @IBOutlet weak var lastWateredPicker: UIDatePicker!
+
+    @IBOutlet weak var waterFrequencyPicker: UIPickerView!
+
+    @IBOutlet weak var plantImage: UIImageView!
+
+    @IBOutlet weak var plantNameTextField: UITextField!
+
+
+
+    // MARK: - Methods
+
+    // Set up custom pickerview
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return pickerData.count
     }
-    */
 
+    func pickerView(_
+        pickerView: UIPickerView,
+                    numberOfRowsInComponent component: Int
+    ) -> Int {
+        return pickerData[component].count
+    }
+
+    func pickerView(_
+        pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int
+    ) -> String? {
+        return pickerData[component][row]
+    }
+
+    private func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // Need to figure this section out yet
+        //
+    }
+
+    @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
+        navigationController?.dismiss(animated: true, completion: nil)
+
+    }
+/*    NEED TO FIX THIS SECTION
+
+
+
+
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let plantName = plantNameTextField.text, !plantName.isEmpty,
+              let last = lastWateredPicker.date
+                  delegateLast?.lastWateredWasPicked(date: last),
+        let next = waterFrequencyPicker.
+            else  { return }
+
+
+
+        let plant = Plant(name: plantName, identifier: UUID().uuidString, lastWatered: last, nextWatering: nextWatering, context: CoreDataStack.shared.mainContext)
+
+        plantController?.sendPlantToServer(plant: plant)
+
+        do {
+            try CoreDataStack.shared.mainContext.save()
+            navigationController?.dismiss(animated: true, completion: nil)
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+            
+        }
+
+    }   */
 }
