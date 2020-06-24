@@ -5,7 +5,10 @@
 //  Created by conner on 6/17/20.
 //  Copyright © 2020 conner. All rights reserved.
 //
+<<<<<<< HEAD
 
+=======
+>>>>>>> fe71518ba60d316cf828be9a7f9f10e64ebacd14
 import Foundation
 import CoreData
 
@@ -18,7 +21,10 @@ extension Plant {
     self.lastWatered = lastWatered
     self.nextWatering = nextWatering
    }
+<<<<<<< HEAD
     
+=======
+>>>>>>> fe71518ba60d316cf828be9a7f9f10e64ebacd14
     // Initialize a new Plant from a PlantRepresentation
     @discardableResult convenience init(plantRepresentation: PlantRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(name: plantRepresentation.name,
@@ -27,7 +33,10 @@ extension Plant {
                   nextWatering: plantRepresentation.nextWatering,
                   context: context)
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> fe71518ba60d316cf828be9a7f9f10e64ebacd14
     // Reference Plant -> PlantRepresentation
     var plantRepresentation: PlantRepresentation? {
         guard
@@ -37,4 +46,8 @@ extension Plant {
             let nextWatering = nextWatering else { fatalError("fatalError() in plantRepresentation computed property, Plant+Convenience.swift") }
         return PlantRepresentation(name: name, identifier: identifier, lastWatered: lastWatered, nextWatering: nextWatering)
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> fe71518ba60d316cf828be9a7f9f10e64ebacd14
 }

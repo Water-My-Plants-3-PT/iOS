@@ -46,6 +46,7 @@ class PlantsCollectionViewController: UICollectionViewController {
     
     // MARK: - DebugInfo
     private func debugInfo(_ plant: Plant) {
+<<<<<<< HEAD:WaterMyPlants/WaterMyPlants/View Controllers/PlantsCollectionViewController.swift
         print("You tapped on \(plant.name!)")
         print("DEBUG INFO:")
         print("\tname: \(plant.name!)")
@@ -53,6 +54,15 @@ class PlantsCollectionViewController: UICollectionViewController {
         print("\tlastWatered: \(plant.lastWatered!)")
         print("\tnextWatering: \(plant.nextWatering!)")
         print("\n")
+=======
+        NSLog("You tapped on \(plant.name!)")
+        NSLog("DEBUG INFO:")
+        NSLog("\tname: \(plant.name!)")
+        NSLog("\tidentifier: \(plant.identifier!)")
+        NSLog("\tlastWatered: \(plant.lastWatered!)")
+        NSLog("\tnextWatering: \(plant.nextWatering!)")
+        NSLog("\n")
+>>>>>>> fe71518ba60d316cf828be9a7f9f10e64ebacd14:WaterMyPlants/WaterMyPlants/Replaced Files/PlantsCollectionViewController.swift
     }
     
     // MARK: - View Lifecycle
