@@ -312,7 +312,11 @@
                                 <action selector="cancelTapped:" destination="U7V-LC-WBc" id="G8b-8f-2Q6"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kLP-0l-s1f"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kLP-0l-s1f">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="U7V-LC-WBc" id="8Ns-cI-4As"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="frequencyTextField" destination="80U-ls-52G" id="nAd-8F-Lqu"/>

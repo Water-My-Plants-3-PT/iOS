@@ -13,11 +13,12 @@ import CoreData
 
 extension Plant {
     // Initialize a new Plant
-    @discardableResult convenience init(name: String, identifier: String = UUID().uuidString, lastWatered: Date = Date(), nextWatering: Date = Date(), imageData: Data? = nil, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init(name: String, identifier: String = UUID().uuidString, lastWatered: Date, frequency: Int, nextWatering: Date = Date(), imageData: Data? = nil, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.name = name
         self.identifier = identifier
         self.lastWatered = lastWatered
+        self.frequency = Int16(frequency)
         self.nextWatering = nextWatering
         self.imageData = imageData
    }
@@ -27,6 +28,7 @@ extension Plant {
         self.init(name: plantRepresentation.name,
                   identifier: plantRepresentation.identifier,
                   lastWatered: plantRepresentation.lastWatered,
+                  frequency: plantRepresentation.frequency,
                   nextWatering: plantRepresentation.nextWatering,
                   imageData: plantRepresentation.imageData,
                   context: context)
@@ -38,6 +40,6 @@ extension Plant {
             let identifier = identifier,
             let lastWatered = lastWatered,
             let nextWatering = nextWatering else { return nil }
-        return PlantRepresentation(name: name, identifier: identifier, lastWatered: lastWatered, nextWatering: nextWatering, imageData: imageData)
+        return PlantRepresentation(name: name, identifier: identifier, lastWatered: lastWatered, nextWatering: nextWatering, imageData: imageData, frequency: Int(frequency))
     }
 }

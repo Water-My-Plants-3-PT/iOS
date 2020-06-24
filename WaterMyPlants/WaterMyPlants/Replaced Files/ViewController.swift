@@ -24,7 +24,7 @@ class ViewController: UIViewController {
             let nameInput = alertController.textFields![0] as UITextField
             if nameInput.text != nil {
                 // Save it to coredata
-                Plant(name: nameInput.text!, lastWatered: Date(), nextWatering: Date())
+                Plant(name: nameInput.text!, identifier: String(), lastWatered: Date(), frequency: Int()) // ?
                 do {
                     try CoreDataStack.shared.mainContext.save()
                     // Notify observers that new plant has been added

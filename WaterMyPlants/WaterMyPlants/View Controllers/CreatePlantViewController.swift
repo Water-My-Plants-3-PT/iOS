@@ -45,12 +45,19 @@ class CreatePlantViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let name = plantNameTextField.text,
             let lastWatered = lastWateredPicker?.date,
-            let frequency = frequencyTextField.text else { return }
+            let frequencyString = frequencyTextField.text,
+            let frequency = Int(frequencyString) else {
+                print("ERROR AHH")
+                let alertController = UIAlertController()
+                // TODO: Notify user to fill out fields
+                
+                return
+        }
         
-        let maintenanceLevel = maintenanceControl.selectedSegmentIndex
+        // let maintenanceLevel = maintenanceControl.selectedSegmentIndex
         
         // Change to the proper initializer
-        let newPlant = Plant()
+        let newPlant = Plant(name: name, lastWatered: lastWatered, frequency: frequency)
         
         plantController?.sendPlantToServer(newPlant)
         

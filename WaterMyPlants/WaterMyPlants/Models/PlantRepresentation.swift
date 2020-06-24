@@ -15,4 +15,5 @@ struct PlantRepresentation: Codable {
     let lastWatered: Date
     let nextWatering: Date
     let imageData: Data?
+    let frequency: Int
 }
