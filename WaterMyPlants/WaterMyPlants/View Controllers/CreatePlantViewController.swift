@@ -10,36 +10,27 @@ import UIKit
 import CoreData
 
 
-protocol LastWateredPickerDelegate {
-    func lastWateredWasPicked(date: Date)
-}
 
-protocol NextWaterPickerDelegate {
-    func nextWaterWasPicked(frequency: Int)   // assuming that this is correct, we need to convert the data from the picker to an Int that we
-}
 
-class CreatePlantViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+
+class CreatePlantViewController: UIViewController {
 
 
 
 
     // MARK: - Properties
-    var delegateLast: LastWateredPickerDelegate?
-    var delegatenext: NextWaterPickerDelegate?
-    var plantController: PlantController?
-    //var lastWatered: UIDatePicker?
-    //var nextWatering: UIPickerView?
 
-    let pickerData = [
-        ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-        ["Days"]
-    ]
+    var nextWater: Date?
+    var plantController: PlantController?
+
+
+
+
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        waterFrequencyPicker.delegate = self
-        waterFrequencyPicker.dataSource = self
+
 
     }
 
@@ -48,7 +39,9 @@ class CreatePlantViewController: UIViewController, UIPickerViewDataSource, UIPic
 
     @IBOutlet weak var lastWateredPicker: UIDatePicker!
 
-    @IBOutlet weak var waterFrequencyPicker: UIPickerView!
+    @IBOutlet weak var frequencyTextField: UITextField!
+
+    @IBOutlet weak var nextWaterLabel: UILabel!
 
     @IBOutlet weak var plantImage: UIImageView!
 
@@ -58,30 +51,7 @@ class CreatePlantViewController: UIViewController, UIPickerViewDataSource, UIPic
 
     // MARK: - Methods
 
-    // Set up custom pickerview
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerData.count
-    }
 
-    func pickerView(_
-        pickerView: UIPickerView,
-                    numberOfRowsInComponent component: Int
-    ) -> Int {
-        return pickerData[component].count
-    }
-
-    func pickerView(_
-        pickerView: UIPickerView,
-                    titleForRow row: Int,
-                    forComponent component: Int
-    ) -> String? {
-        return pickerData[component][row]
-    }
-
-    private func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // Need to figure this section out yet
-        //
-    }
 
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true, completion: nil)

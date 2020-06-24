@@ -2,11 +2,12 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Plant" representedClassName="Plant" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" optional="YES" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
         <attribute name="lastWatered" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="nextWatering" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Plant" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Plant" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

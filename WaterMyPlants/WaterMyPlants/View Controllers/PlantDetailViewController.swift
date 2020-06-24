@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class PlantDetailViewController: UIViewController {
     
     // MARK: - Properties
 
@@ -17,16 +17,12 @@ class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     var wasEdited: Bool = false
     let dateAdded = Date()
 
-    let pickerData = [
-        ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-        ["Days", "Weeks"]
-    ]
+
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        waterFrequencyPicker.delegate = self
-        waterFrequencyPicker.dataSource = self
+
         navigationItem.rightBarButtonItem = editButtonItem
         updateViews()
     }
@@ -36,7 +32,9 @@ class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
 
     @IBOutlet weak var lastWateredPicker: UIDatePicker!
 
-    @IBOutlet weak var waterFrequencyPicker: UIPickerView!
+    @IBOutlet weak var frequencyTextField: UITextField!
+
+    @IBOutlet weak var nextWaterLabel: UILabel!
 
     @IBOutlet weak var plantImage: UIImageView!
 
@@ -44,11 +42,15 @@ class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
 
 
     // MARK: - IBActions
+
+    @IBAction func lastWaterPickerChanged(_ sender: Any) {
+
+
     func frequencyPickerChanged(frequencyPicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
-
+        }
         /*
-         Should be able to grab whatever date is on the picker and
+         Should be able to grab whatever date is on the picker add the frequency entered by user, and
          convert it to a string to be stored in the label's text.
          Might be useful to also store the date to be used in a calculation
          to determine a future watering date.
@@ -59,25 +61,6 @@ class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     // MARK: - Methods
 
-    // Set up custom pickerview
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerData.count
-    }
-    
-    func pickerView(_
-        pickerView: UIPickerView,
-                    numberOfRowsInComponent component: Int
-    ) -> Int {
-        return pickerData[component].count
-    }
-
-    func pickerView(_
-        pickerView: UIPickerView,
-                    titleForRow row: Int,
-                    forComponent component: Int
-    ) -> String? {
-        return pickerData[component][row]
-    }
 
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -90,7 +73,7 @@ class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
         navigationItem.hidesBackButton = editing
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {     // need to add frequency TF edit capability and update waterLabel
         super.viewWillDisappear(animated)
         if wasEdited{
             guard let name = plantNameTextField.text, !name.isEmpty,
@@ -98,7 +81,7 @@ class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
                 else { return }
 
             plant.name = name
-            plantController?.sendPlantToServer(plant: plant)
+            plantController?.sendPlantToServer(plant)
 
             do{
                 try CoreDataStack.shared.mainContext.save()
@@ -112,8 +95,9 @@ class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     private func updateViews() {
         plantNameTextField.text = plant?.name
         plantNameTextField.isUserInteractionEnabled = isEditing
-
-        // add image and picker info
+               //need to fix this Label to link to the function for setting date
+              //nextWaterLabel.text = plant?.nextWatering
+              frequencyTextField.isUserInteractionEnabled = isEditing
 
     }
 
