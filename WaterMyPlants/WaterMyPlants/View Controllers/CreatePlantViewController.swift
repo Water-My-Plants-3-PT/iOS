@@ -14,10 +14,6 @@ protocol LastWateredPickerDelegate {
     func lastWateredWasPicked(date: Date)
 }
 
-protocol NextWaterPickerDelegate {
-    func nextWaterWasPicked(frequency: Int)   // assuming that this is correct, we need to convert the data from the picker to an Int that we
-}
-
 class CreatePlantViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
 
@@ -25,13 +21,13 @@ class CreatePlantViewController: UIViewController, UIPickerViewDataSource, UIPic
 
     // MARK: - Properties
     var delegateLast: LastWateredPickerDelegate?
-    var delegatenext: NextWaterPickerDelegate?
+    var nextWater: Int?
     var plantController: PlantController?
-    //var lastWatered: UIDatePicker?
-    //var nextWatering: UIPickerView?
+
+
 
     let pickerData = [
-        ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+        ["1...100", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         ["Days"]
     ]
 
