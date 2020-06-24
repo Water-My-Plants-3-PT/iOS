@@ -9,32 +9,18 @@
 import UIKit
 import CoreData
 
-
-
-
-
 class CreatePlantViewController: UIViewController {
-
-
-
-
+    
     // MARK: - Properties
 
     var nextWater: Date?
     var plantController: PlantController?
-
-
-
-
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
     }
-
-
+    
     // MARK: - IBOutlets
 
     @IBOutlet weak var lastWateredPicker: UIDatePicker!
@@ -46,42 +32,33 @@ class CreatePlantViewController: UIViewController {
     @IBOutlet weak var plantImage: UIImageView!
 
     @IBOutlet weak var plantNameTextField: UITextField!
-
-
-
+    
+    @IBOutlet weak var maintenanceControl: UISegmentedControl!
+    
     // MARK: - Methods
-
-
-
+    
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true, completion: nil)
 
     }
-/*    NEED TO FIX THIS SECTION
-
-
-
 
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        guard let plantName = plantNameTextField.text, !plantName.isEmpty,
-              let last = lastWateredPicker.date
-                  delegateLast?.lastWateredWasPicked(date: last),
-        let next = waterFrequencyPicker.
-            else  { return }
-
-
-
-        let plant = Plant(name: plantName, identifier: UUID().uuidString, lastWatered: last, nextWatering: nextWatering, context: CoreDataStack.shared.mainContext)
-
-        plantController?.sendPlantToServer(plant: plant)
-
+        guard let name = plantNameTextField.text,
+            let lastWatered = lastWateredPicker?.date,
+            let frequency = frequencyTextField.text else { return }
+        
+        let maintenanceLevel = maintenanceControl.selectedSegmentIndex
+        
+        // Change to the proper initializer
+        let newPlant = Plant()
+        
+        plantController?.sendPlantToServer(newPlant)
+        
         do {
             try CoreDataStack.shared.mainContext.save()
             navigationController?.dismiss(animated: true, completion: nil)
         } catch {
             NSLog("Error saving managed object context: \(error)")
-            
         }
-
-    }   */
+    }
 }

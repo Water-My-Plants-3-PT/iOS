@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u6C-sD-g2H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u6C-sD-g2H">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -317,6 +317,7 @@
                     <connections>
                         <outlet property="frequencyTextField" destination="80U-ls-52G" id="nAd-8F-Lqu"/>
                         <outlet property="lastWateredPicker" destination="DTo-6b-aRS" id="Ooo-9B-t79"/>
+                        <outlet property="maintenanceControl" destination="AJh-ou-ENX" id="3FL-4o-ZhR"/>
                         <outlet property="nextWaterLabel" destination="iYc-BM-UdM" id="McO-Uc-Afc"/>
                         <outlet property="plantImage" destination="cxd-D9-NCi" id="qCQ-Nc-Ydf"/>
                         <outlet property="plantNameTextField" destination="6KP-Vr-UxC" id="giv-Rr-kX2"/>
