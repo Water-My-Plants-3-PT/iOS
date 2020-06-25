@@ -2,7 +2,7 @@
 //  PlantRepresentation.swift
 //  WaterMyPlants
 //
-//  Created by conner on 6/17/20.
+//  Created by Ian French on 6/23/20.
 //  Copyright © 2020 conner. All rights reserved.
 //
 
@@ -13,4 +13,6 @@ struct PlantRepresentation: Codable {
     let identifier: String
     let lastWatered: Date
     let nextWatering: Date
+    let imageData: Data?
+    let maintenanceLevel: Int16
 }
