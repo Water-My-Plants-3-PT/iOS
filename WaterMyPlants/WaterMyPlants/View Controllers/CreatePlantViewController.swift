@@ -47,13 +47,19 @@ class CreatePlantViewController: UIViewController {
             let lastWatered = lastWateredPicker?.date,
             let frequencyString = frequencyTextField.text,
             let frequency = Int(frequencyString) else {
-                print("ERROR AHH")
-                let alertController = UIAlertController()
-                // TODO: Notify user to fill out fields
+                let alertController = UIAlertController(title: "Warning",
+                                                        message: "Make sure you've filled out all input fields.",
+                                                        preferredStyle: .alert)
+                let confirmAction = UIAlertAction(title: "OK",
+                                                  style: .default,
+                                                  handler: nil)
+                alertController.addAction(confirmAction)
+                present(alertController, animated: true, completion: nil)
                 
                 return
         }
         
+        // OPTIONAL stretch goal
         // let maintenanceLevel = maintenanceControl.selectedSegmentIndex
         
         // Change to the proper initializer

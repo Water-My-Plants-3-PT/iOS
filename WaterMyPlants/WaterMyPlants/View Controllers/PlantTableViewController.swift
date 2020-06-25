@@ -37,6 +37,7 @@ class PlantsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
