@@ -8,110 +8,68 @@
 
 import UIKit
 import CoreData
-
-
-protocol LastWateredPickerDelegate {
-    func lastWateredWasPicked(date: Date)
-}
-
-protocol NextWaterPickerDelegate {
-    func nextWaterWasPicked(frequency: Int)   // assuming that this is correct, we need to convert the data from the picker to an Int that we
-}
-
-class CreatePlantViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-
-
-
-
+class CreatePlantViewController: UIViewController {
     // MARK: - Properties
-    var delegateLast: LastWateredPickerDelegate?
-    var delegatenext: NextWaterPickerDelegate?
-    var plantController: PlantController?
-    //var lastWatered: UIDatePicker?
-    //var nextWatering: UIPickerView?
-
-    let pickerData = [
-        ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-        ["Days"]
-    ]
-
+    let plantController = PlantController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        waterFrequencyPicker.delegate = self
-        waterFrequencyPicker.dataSource = self
-
     }
-
 
     // MARK: - IBOutlets
-
     @IBOutlet weak var lastWateredPicker: UIDatePicker!
-
-    @IBOutlet weak var waterFrequencyPicker: UIPickerView!
-
+    @IBOutlet weak var frequencyTextField: UITextField!
+    @IBOutlet weak var nextWaterLabel: UILabel!
     @IBOutlet weak var plantImage: UIImageView!
-
     @IBOutlet weak var plantNameTextField: UITextField!
-
-
-
+    @IBOutlet weak var prioritySelector: UISegmentedControl!
+    
     // MARK: - Methods
-
-    // Set up custom pickerview
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerData.count
-    }
-
-    func pickerView(_
-        pickerView: UIPickerView,
-                    numberOfRowsInComponent component: Int
-    ) -> Int {
-        return pickerData[component].count
-    }
-
-    func pickerView(_
-        pickerView: UIPickerView,
-                    titleForRow row: Int,
-                    forComponent component: Int
-    ) -> String? {
-        return pickerData[component][row]
-    }
-
-    private func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // Need to figure this section out yet
-        //
-    }
-
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true, completion: nil)
-
     }
-/*    NEED TO FIX THIS SECTION
+    
+    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+          guard let name = plantNameTextField.text,
+                  let frequencyString = frequencyTextField.text,
+                  let days = Int(frequencyString) else {
+                      let alertController = UIAlertController(title: "Warning",
+                                                          message: "Make sure you've filled out all input fields.",
+                                                          preferredStyle: .alert)
+                  let confirmAction = UIAlertAction(title: "OK",
+                                                    style: .default,
+                                                    handler: nil)
+                  alertController.addAction(confirmAction)
+                  present(alertController, animated: true, completion: nil)
+                  return
+              }
+              // Initialize a date for the nextWatering from frequency
+              // timeInterval() from frequency in hours
+              let frequencyInSeconds = TimeInterval(((days*24)*60)*60)
+              // create plant, save to coredata, send to firebase
+              let newPlant = Plant(
+                  name: name,
+                  lastWatered: lastWateredPicker.date,
+                  nextWatering: Date(timeInterval: frequencyInSeconds, since: lastWateredPicker.date),
+                  maintenanceLevel: Priority(rawValue: Int16(prioritySelector!.selectedSegmentIndex))!)
+              do {
+                  try CoreDataStack.shared.mainContext.save()
+                  self.plantController.sendPlantToServer(newPlant)
+                  // Notify observers that new plant has been added
+                  NotificationCenter.default.post(name: .newPlantAdded, object: self)
+              } catch {
+                  NSLog("Error saving managed object context: \(error)")
+              }
+
+              navigationController?.dismiss(animated: true, completion: nil)
+          }
 
 
 
+private func updateViews(){
 
-    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        guard let plantName = plantNameTextField.text, !plantName.isEmpty,
-              let last = lastWateredPicker.date
-                  delegateLast?.lastWateredWasPicked(date: last),
-        let next = waterFrequencyPicker.
-            else  { return }
+   
 
+}
 
-
-        let plant = Plant(name: plantName, identifier: UUID().uuidString, lastWatered: last, nextWatering: nextWatering, context: CoreDataStack.shared.mainContext)
-
-        plantController?.sendPlantToServer(plant: plant)
-
-        do {
-            try CoreDataStack.shared.mainContext.save()
-            navigationController?.dismiss(animated: true, completion: nil)
-        } catch {
-            NSLog("Error saving managed object context: \(error)")
-            
-        }
-
-    }   */
 }

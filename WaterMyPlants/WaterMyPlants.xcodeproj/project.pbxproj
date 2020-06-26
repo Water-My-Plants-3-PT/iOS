@@ -23,7 +23,7 @@
 		3C72E68124A259BF00B3245A /* plantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C72E68024A259BF00B3245A /* plantController.swift */; };
 		3C72E68324A25B1E00B3245A /* PlantRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C72E68224A25B1E00B3245A /* PlantRepresentation.swift */; };
 		3C8D3EAD24A0F9DC00DA9B15 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D3EAC24A0F9DC00DA9B15 /* LogInViewController.swift */; };
-		3C8D3EAF24A0FA3700DA9B15 /* PlantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D3EAE24A0FA3700DA9B15 /* PlantTableViewController.swift */; };
+		3C8D3EAF24A0FA3700DA9B15 /* PlantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D3EAE24A0FA3700DA9B15 /* PlantsTableViewController.swift */; };
 		3C8D3EB224A0FA9200DA9B15 /* PlantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D3EB124A0FA9200DA9B15 /* PlantTableViewCell.swift */; };
 		3C8D3EB424A0FBCD00DA9B15 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D3EB324A0FBCD00DA9B15 /* User.swift */; };
 		3C8D3EB624A0FBF200DA9B15 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D3EB524A0FBF200DA9B15 /* Bearer.swift */; };
@@ -52,7 +52,7 @@
 		3C72E68024A259BF00B3245A /* plantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = plantController.swift; path = WaterMyPlants/Models/plantController.swift; sourceTree = SOURCE_ROOT; };
 		3C72E68224A25B1E00B3245A /* PlantRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRepresentation.swift; sourceTree = "<group>"; };
 		3C8D3EAC24A0F9DC00DA9B15 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		3C8D3EAE24A0FA3700DA9B15 /* PlantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTableViewController.swift; sourceTree = "<group>"; };
+		3C8D3EAE24A0FA3700DA9B15 /* PlantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsTableViewController.swift; sourceTree = "<group>"; };
 		3C8D3EB124A0FA9200DA9B15 /* PlantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTableViewCell.swift; sourceTree = "<group>"; };
 		3C8D3EB324A0FBCD00DA9B15 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3C8D3EB524A0FBF200DA9B15 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
@@ -74,6 +74,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		138A21B824A3040E003A6658 /* UI Testing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UI Testing";
+			sourceTree = "<group>";
+		};
+		138A21B924A3041C003A6658 /* Unit Testing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Unit Testing";
+			sourceTree = "<group>";
+		};
 		13CA9D502499C30600D3931E = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +116,8 @@
 				13CA9D722499C33800D3931E /* View Controllers */,
 				13CA9D712499C32C00D3931E /* Storyboards */,
 				13CA9D702499C31C00D3931E /* Resources */,
+				138A21B824A3040E003A6658 /* UI Testing */,
+				138A21B924A3041C003A6658 /* Unit Testing */,
 				13CA9D6A2499C30700D3931E /* Info.plist */,
 			);
 			path = WaterMyPlants;
@@ -131,7 +147,7 @@
 			children = (
 				E3DAF6BB249B075700B5FE43 /* PlantDetailViewController.swift */,
 				3C8D3EAC24A0F9DC00DA9B15 /* LogInViewController.swift */,
-				3C8D3EAE24A0FA3700DA9B15 /* PlantTableViewController.swift */,
+				3C8D3EAE24A0FA3700DA9B15 /* PlantsTableViewController.swift */,
 				3C972B4724A26F3C0074D8E7 /* CreatePlantViewController.swift */,
 			);
 			path = "View Controllers";
@@ -314,7 +330,7 @@
 				132667CC249ADF0C007FC064 /* PlantCollectionViewCell.swift in Sources */,
 				132667BC249A9F3F007FC064 /* CoreDataStack.swift in Sources */,
 				132667C0249AA235007FC064 /* Notifications.swift in Sources */,
-				3C8D3EAF24A0FA3700DA9B15 /* PlantTableViewController.swift in Sources */,
+				3C8D3EAF24A0FA3700DA9B15 /* PlantsTableViewController.swift in Sources */,
 				13CA9D612499C30600D3931E /* ViewController.swift in Sources */,
 				132667CA249AB95A007FC064 /* PlantsCollectionViewController.swift in Sources */,
 				132667BA249A9E73007FC064 /* WaterMyPlants.xcdatamodeld in Sources */,

@@ -12,18 +12,10 @@ enum LoginType {
     case signIn
 }
 
-
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
-
-
-
     @IBOutlet weak var signupSegmented: UISegmentedControl!
-
     @IBOutlet weak var usernameTextField: UITextField!
-
     @IBOutlet weak var passwordTextField: UITextField!
-
     @IBOutlet weak var signupButton: UIButton!
 
     // var plantController: PlantController?
@@ -35,8 +27,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         signupButton.tintColor = .white
         signupButton.layer.cornerRadius = 8.0
 
-        signupSegmented.setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
-        signupSegmented.setTitleTextAttributes ([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: UIControl.State.selected)
+        signupSegmented.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
+        signupSegmented.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: UIControl.State.selected)
         signupSegmented.backgroundColor = UIColor.systemBlue
         signupSegmented.tintColor = .white
         signupSegmented.layer.cornerRadius = 8.0

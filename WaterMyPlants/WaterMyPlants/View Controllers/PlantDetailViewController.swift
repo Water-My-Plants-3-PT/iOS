@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class PlantDetailViewController: UIViewController {
     
     // MARK: - Properties
 
@@ -17,90 +18,58 @@ class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     var wasEdited: Bool = false
     let dateAdded = Date()
 
-    let pickerData = [
-        ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-        ["Days", "Weeks"]
-    ]
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        waterFrequencyPicker.delegate = self
-        waterFrequencyPicker.dataSource = self
+
         navigationItem.rightBarButtonItem = editButtonItem
         updateViews()
     }
 
-
     // MARK: - IBOutlets
 
     @IBOutlet weak var lastWateredPicker: UIDatePicker!
-
-    @IBOutlet weak var waterFrequencyPicker: UIPickerView!
-
+    @IBOutlet weak var frequencyTextField: UITextField!
+    @IBOutlet weak var nextWaterLabel: UILabel!
     @IBOutlet weak var plantImage: UIImageView!
-
     @IBOutlet weak var plantNameTextField: UITextField!
-
-
+    @IBOutlet weak var prioritySelector: UISegmentedControl!
+    
+    
     // MARK: - IBActions
-    func frequencyPickerChanged(frequencyPicker: UIDatePicker) {
-        let dateFormatter = DateFormatter()
 
-        /*
-         Should be able to grab whatever date is on the picker and
-         convert it to a string to be stored in the label's text.
-         Might be useful to also store the date to be used in a calculation
-         to determine a future watering date.
-         */
-
-    }
-
-    
-    // MARK: - Methods
-
-    // Set up custom pickerview
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerData.count
-    }
-    
-    func pickerView(_
-        pickerView: UIPickerView,
-                    numberOfRowsInComponent component: Int
-    ) -> Int {
-        return pickerData[component].count
-    }
-
-    func pickerView(_
-        pickerView: UIPickerView,
-                    titleForRow row: Int,
-                    forComponent component: Int
-    ) -> String? {
-        return pickerData[component][row]
-    }
-
-
+ 
     override func setEditing(_ editing: Bool, animated: Bool) {
 
         super.setEditing(editing, animated: animated)
-        if editing{
+        if editing {
             wasEdited = true
         }
-        plantNameTextField.isUserInteractionEnabled = isEditing
+        plantNameTextField.isUserInteractionEnabled = editing
+        prioritySelector.isUserInteractionEnabled = editing
+        lastWateredPicker.isUserInteractionEnabled = editing
+        frequencyTextField.isUserInteractionEnabled = editing
         navigationItem.hidesBackButton = editing
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {    
         super.viewWillDisappear(animated)
-        if wasEdited{
+        if wasEdited {
             guard let name = plantNameTextField.text, !name.isEmpty,
+            let frequency = frequencyTextField.text, !frequency.isEmpty,
+            let days = Int(frequency),
                 let plant = plant
                 else { return }
 
-            plant.name = name
-            plantController?.sendPlantToServer(plant: plant)
+            let frequencyInSeconds = TimeInterval(((days*24)*60)*60)
 
-            do{
+            plant.name = name
+            plant.nextWatering = Date(timeInterval: frequencyInSeconds, since: lastWateredPicker.date)
+            plant.lastWatered = lastWateredPicker.date
+            plant.maintenanceLevel = Int16(prioritySelector!.selectedSegmentIndex)
+
+            plantController?.sendPlantToServer(plant)
+
+            do {
                 try CoreDataStack.shared.mainContext.save()
             } catch {
                 NSLog("Error saving managed object context: \(error)")
@@ -112,10 +81,8 @@ class PlantDetailViewController: UIViewController, UIPickerViewDataSource, UIPic
     private func updateViews() {
         plantNameTextField.text = plant?.name
         plantNameTextField.isUserInteractionEnabled = isEditing
-
-        // add image and picker info
-
+        nextWaterLabel.text = (String(describing: plant?.nextWatering))
+        let defaultFreq: Int = 1
+        frequencyTextField.text = String(defaultFreq)
     }
-
-
 }

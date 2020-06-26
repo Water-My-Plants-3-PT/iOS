@@ -6,7 +6,6 @@
 //  Copyright © 2020 conner. All rights reserved.
 //
 
-
 import Foundation
 
 struct User: Codable {

@@ -6,13 +6,13 @@
 //  Copyright © 2020 conner. All rights reserved.
 //
 
-
 import Foundation
 
 struct PlantRepresentation: Codable {
-    var name: String
-    var identifier: String
-    var lastWatered: Date
-    var nextWatering: Date
-
+    let name: String
+    let identifier: String
+    let lastWatered: Date
+    let nextWatering: Date
+    let imageData: Data?
+    let maintenanceLevel: Int16
 }
