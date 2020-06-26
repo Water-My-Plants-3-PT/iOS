@@ -81,7 +81,9 @@ class PlantDetailViewController: UIViewController {
     private func updateViews() {
         plantNameTextField.text = plant?.name
         plantNameTextField.isUserInteractionEnabled = isEditing
-        nextWaterLabel.text = (String(describing: plant?.nextWatering))
+        nextWaterLabel.text =  (String(describing: plant?.nextWatering))
+
+
         let defaultFreq: Int = 1
         frequencyTextField.text = String(defaultFreq)
     }

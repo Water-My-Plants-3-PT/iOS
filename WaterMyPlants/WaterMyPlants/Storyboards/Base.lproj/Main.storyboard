@@ -59,17 +59,12 @@
                                             </imageView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VGz-WL-yqB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Watering Frequency:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lg5-jd-iIz">
                                         <rect key="frame" x="70" y="164" width="188.5" height="20.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Watering Frequency:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lg5-jd-iIz">
-                                                <rect key="frame" x="0.0" y="0.0" width="188.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="JrN-Im-h5c">
                                         <rect key="frame" x="35" y="218.5" width="258.5" height="34"/>
                                         <subviews>
@@ -122,6 +117,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="NJ3-y6-2kW" firstAttribute="leading" secondItem="h2L-Qk-Yyb" secondAttribute="leading" id="8ed-8o-CMj"/>
+                                            <constraint firstItem="15V-8r-wBR" firstAttribute="leading" secondItem="NJ3-y6-2kW" secondAttribute="trailing" constant="12" id="QcY-mB-eAr"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ht5-GV-X9v">
                                         <rect key="frame" x="61" y="620.5" width="206" height="58.5"/>
@@ -164,7 +163,7 @@
                         <outlet property="frequencyLabel" destination="gax-lV-rRe" id="Hh8-L3-SUd"/>
                         <outlet property="frequencyTextField" destination="DEh-ba-zCL" id="oEB-37-MOW"/>
                         <outlet property="lastWateredPicker" destination="1CY-9V-95t" id="n5U-hc-KIK"/>
-                        <outlet property="nextWaterLabel" destination="M2W-KE-mqb" id="TuW-B4-Fm3"/>
+                        <outlet property="nextWaterLabel" destination="15V-8r-wBR" id="BTQ-aS-44D"/>
                         <outlet property="plantImage" destination="8ee-ab-AFN" id="8os-Tf-030"/>
                         <outlet property="plantNameTextField" destination="Ln1-Ld-PQG" id="x17-wE-1I0"/>
                         <outlet property="prioritySelector" destination="Hra-oY-Vd7" id="xlg-0g-VzM"/>

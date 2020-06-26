@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-var selectedAPI = firebaseURL
+var selectedAPI = webapiURL
 
 // Main API
 let webapiURL = URL(string: "https://water-my-plants-6-2020.herokuapp.com/")!
