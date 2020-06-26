@@ -81,7 +81,13 @@ class PlantDetailViewController: UIViewController {
     private func updateViews() {
         plantNameTextField.text = plant?.name
         plantNameTextField.isUserInteractionEnabled = isEditing
-        nextWaterLabel.text =  (String(describing: plant?.nextWatering))
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        let date = formatter.string(from: plant?.nextWatering ?? Date())
+
+
+       nextWaterLabel.text = date
 
 
         let defaultFreq: Int = 1
