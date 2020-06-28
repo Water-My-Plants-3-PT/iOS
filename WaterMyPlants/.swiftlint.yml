@@ -2,3 +2,4 @@ disabled_rules:
  - line_length
  - unused_optional_binding
  - trailing_whitespace
+ - empty_parentheses_with_trailing_closure
